@@ -11,6 +11,7 @@
 		$.getJSON('/feed/'+channel+'?callback=?', function(data){
 			console.log(data);
 			var items = data.stories
+			container.empty();
 			for (var newsItem in items){
 				$( "#mediaTemplate" ).tmpl( items[newsItem] ).appendTo( container );
 			}
