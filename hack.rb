@@ -1,6 +1,6 @@
 # hack.rb
-  require 'sinatra'
   require 'rubygems'
+  require 'sinatra'
   require 'httparty'
   require 'json'
   
