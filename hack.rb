@@ -16,6 +16,7 @@
       newsml["NewsML"]["NewsItem"].each{|key, value|
         story = {}
         newsitem = key["NewsComponent"]["NewsComponent"]["NewsComponent"]
+        
         story["headline"] = newsitem[0]["NewsLines"]["HeadLine"]
         story["slug"] = newsitem[0]["NewsLines"]["SlugLine"]
         story["body"] = newsitem[0]["ContentItem"]["DataContent"]

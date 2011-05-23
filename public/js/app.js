@@ -1,11 +1,13 @@
 (function($){
 	
-	var medium = 992
-	var large = 1382
+	var medium = 992,
+	    large = 1382
 	
 	var main = $('div[role="main"]'),
 		nav = $("nav[role='navigation'] ul"),
 		navPos = 0;
+		
+		var currentJson = ""
  	
 	var init = function(){
 		updateStories('uknews', main);
@@ -16,13 +18,18 @@
 	
 	var updateStories = function(channel, container) {
 		$.getJSON('/feed/'+channel+'?callback=?', function(data){
+			currentJson = data;
 			console.log(data);
 			var items = data.stories
 			container.empty();
 			for (var newsItem in items){
-				$( "#mediaTemplate" ).tmpl( items[newsItem] ).appendTo( container );
+				var story = items[newsItem]
+				story["index"] = newsItem;
+				$( "#mediaTemplate" ).tmpl( story).appendTo( container );
 			}
+			initStoryClick();
 		});
+		
 	}
 	
 	var initArrows = function(){
@@ -48,13 +55,25 @@
 		});
 	}
 	
-	// var loadContentItem = function(){
-	// 	if (screen.width >= medium) {
-	// 		// download complicated script
-	// 		// swap in full-source images for low-source ones
-	// 		$()
-	// 	}
-	// }
+	var initStoryClick = function(){
+		$("article", main).click(function(ev){
+			console.log("added")
+			loadContentItem($(this).attr('data-index'));
+			ev.preventDefault();
+		});
+	}
+	
+	var loadContentItem = function(index){
+		var container
+		if (screen.width >= medium) {
+			container = $("#bigstory");
+			// download complicated script
+			// swap in full-source images for low-source ones
+			container.empty();
+			console.log( currentJson, index, currentJson.stories[index*1] )
+			$( "#bigstoryTemplate" ).tmpl( currentJson.stories[index*1] ).appendTo( container );
+		}
+	}
 	
 	var initNav = function(){
 		$("li a", nav).click(function() {

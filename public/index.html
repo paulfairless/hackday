@@ -132,7 +132,7 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
 <script src="js/plugins.js"></script>
 <script src="js/script.js"></script>
 <script id="mediaTemplate" type="text/x-jquery-tmpl"> 
-<article class="media attribution">
+<article class="media attribution" data-index="${index}">
   <a href="http://twitter.com/stubbornella" class="img">
     <img src="${image}" alt="me" />
   </a>
@@ -143,13 +143,14 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
 </script>
 
 <script id="bigstoryTemplate" type="text/x-jquery-tmpl"> 
-<article class="">
-  <a href="http://twitter.com/stubbornella" class="img">
+<article class="mainArticle">
+  <header>
     <img src="${image}" alt="me" />
-  </a>
-  <div class="bd">
-    ${headline}
-  </div>
+	<h2>${headline}</h2>
+  </header>
+  <p>
+    ${body}
+  </p>
 </article>
 </script>
 <script src="js/app.js"></script>
