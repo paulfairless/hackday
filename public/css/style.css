@@ -465,7 +465,7 @@ margin-bottom : 1.5em; }
 
 
    div[role="main"] {float: left; width: 300px; margin-right: 20px;}
-div[role="mainArticle"] {float: left; width: 400px; display: none}
+article#mainArticle {float: left; width: 400px; display: none}
 
 
 .content, header, footer {margin: 0 auto; width: 320px;}
@@ -538,7 +538,7 @@ header[role="banner"] img{
 	display:block;
 	width:200px;
 }
-article img{
+div[role="main"] article img{
 	width: 100px;
 }
 article {
@@ -570,7 +570,7 @@ article {
 /* 17.MODERNIZR */
 
 
-  .content, header, footer {width: 480px;}
+  .content, header[role="banner"], footer {width: 480px;}
 
 header[role="banner"] img{width:400px;}
 
@@ -645,7 +645,7 @@ header[role="banner"] img{width:400px;}
 
   .content, header, footer {width: 992px;}
 
-  div[role="mainArticle"] {display: block}
+  article#mainArticle" {display: block}
 header[role="banner"] img{width:600px; margin: 20px auto}
 
 
