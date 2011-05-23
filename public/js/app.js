@@ -28,6 +28,8 @@
 				$( "#mediaTemplate" ).tmpl( story).appendTo( container );
 			}
 			initStoryClick();
+			
+			$("article:eq(0)", main).click();
 		});
 		
 	}
