@@ -17,6 +17,8 @@
 	}
 	
 	var updateStories = function(channel, container) {
+		container.empty();
+		container.html("<img src='img/ajax-loader.gif' />")
 		$.getJSON('/feed/'+channel+'?callback=?', function(data){
 			currentJson = data;
 			// console.log(data);
