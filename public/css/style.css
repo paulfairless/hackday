@@ -322,7 +322,7 @@ nav[role="navigation"] ul li a:link, ul#navigation li a:visited {
 	-o-transition: background-color 0.1s linear;
 }
 
-.bd {display: block; width: 100%;}
+#video .bd {display: block; width: 100%;}
 
 nav[role="navigation"] ul li.selected a:link, ul#navigation li.selected a:visited {
 	color: #f00;
