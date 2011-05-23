@@ -29,6 +29,11 @@ COLOURS
 
 */
 
+
+
+
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -66,10 +71,10 @@ background : rgb(0,0,0) /* url(../img/tmp/grid.png) repeat-y 50% 0 */; }
 body { 
 margin : 0 auto;
 padding : 12px 0;
-width : 90% /* 252px */;
+width : 100% /* 252px */;
 font : 12px/1.4 "Helvetica Neue", Helvetica, Arial;
 color : rgb(40,40,40); 
-background-color : transparent; }
+background : #000 url(../img/bg.jpg) no-repeat center top; }
 
 /* 2.HEADINGS */
 
@@ -252,7 +257,6 @@ background-color : transparent; }
 /* 9.NAVIGATION */
 nav[role="navigation"] {
 	width: 100%;
-	border-bottom: 6px solid #FFF;
 	overflow:hidden;
 }
 nav[role="navigation"] span {
@@ -461,10 +465,11 @@ margin-bottom : 1.5em; }
   .custom-content img {width: 117px; display: block; margin: 0 auto}
 
 
-   div[role="main"] {float: left; width: 320px;}
+   div[role="main"] {float: left; width: 300px; margin-right: 20px;}
 div[role="mainArticle"] {float: left; width: 400px; display: none}
 
 
+.content, header, footer {margin: 0 auto; width: 320px;}
 
 
 /* MEDIA QUERIES */
@@ -514,7 +519,7 @@ page-break-after : avoid; }
 }/*/mediaquery*/
 
 /* ====== media ====== */
-.media {margin:10px;}
+.media {}
 .media, .bd {overflow:hidden; _overflow:visible; zoom:1;}
 .media .img {float:left; margin-right: 10px;}
 .media .img img{display:block;}
@@ -527,6 +532,7 @@ header[role="banner"]{
 	width: 100%;
 	margin: auto;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 header[role="banner"] img{
 	margin: auto;
@@ -538,6 +544,7 @@ article img{
 }
 article {
 	font-size:12px;
+  margin-bottom: 10px;
 }
 
 .custom-content {display: none;}
@@ -564,8 +571,9 @@ article {
 /* 17.MODERNIZR */
 
 
+  .content, header, footer {width: 480px;}
 
-
+header[role="banner"] img{width:400px;}
 
 
 
@@ -635,8 +643,11 @@ article {
 /* 16.TEMPLATE SPECIFICS */
 /* 17.MODERNIZR */
 
-  div[role="mainArticle"] {display: block}
 
+  .content, header, footer {width: 992px;}
+
+  div[role="mainArticle"] {display: block}
+header[role="banner"] img{width:600px; margin: 20px auto}
 
 
 }/*/mediaquery*/
