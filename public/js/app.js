@@ -41,7 +41,7 @@
                 var story = items[newsItem];
                 if (!(story.id in existingIds)) {
                     story["index"] = newsItem;
-       			    $( "#mediaTemplate" ).tmpl( story ).appendTo( container );
+       			    $( "#howaboutTemplate" ).tmpl( story ).appendTo( container );
                 }
             }
         });
