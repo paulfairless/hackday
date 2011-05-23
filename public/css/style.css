@@ -67,7 +67,7 @@ body {
 margin : 0 auto;
 padding : 12px 0;
 width : 90% /* 252px */;
-font : 100%/1.4 Cambria, Georgia, Times, "Times New Roman";
+font : 12px/1.4 "Helvetica Neue", Helvetica, Arial;
 color : rgb(40,40,40); 
 background-color : transparent; }
 
@@ -273,14 +273,14 @@ nav[role="navigation"] ul {
 }
 
 nav[role="navigation"] ul li {
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 	float: left;
 /*	width: 168px;*/
 	margin: 0 5px 0 0;
 	background-color: #2B477D;
-	border: solid 1px #999;
+	border: solid 1px #333;
 	position: relative;
 	z-index: 1;
 }
@@ -290,15 +290,11 @@ nav[role="navigation"] ul li.selected {
 }
 
 nav[role="navigation"] ul li a:link, ul#navigation li a:visited {
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-	border-radius: 6px;
 	display: block;
 	text-align: center;
 	padding: 0px 3px;
 	height: 40px;
 	line-height: 24px;
-	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	font-size: 13px;
@@ -307,15 +303,14 @@ nav[role="navigation"] ul li a:link, ul#navigation li a:visited {
 	outline: none;
 	float: left;
 	background: #000;
-	-webkit-transition: background-color 0.3s linear;
-	-moz-transition: background-color 0.3s linear;
-	-o-transition: background-color 0.3s linear;
+	-webkit-transition: background-color 0.1s linear;
+	-moz-transition: background-color 0.1s linear;
+	-o-transition: background-color 0.1s linear;
 }
 
 nav[role="navigation"] ul li.selected a:link, ul#navigation li.selected a:visited {
 	color: #000;
 	border: solid 1px #fff;
-	-webkit-transition: background-color 0.2s linear;
 	background: -moz-linear-gradient(top center, #d1d1d1, #f2f2f2 80%) repeat scroll 0 0 #f2f2f2;
 	background: -webkit-gradient(linear,left bottom,left top,color-stop(.2, #f2f2f2),color-stop(.8, #d1d1d1));
 	background-color: #f2f2f2;
@@ -323,13 +318,12 @@ nav[role="navigation"] ul li.selected a:link, ul#navigation li.selected a:visite
 
 nav[role="navigation"] ul li a:link, ul#navigation li a:visited {  
     /* some other CSS here... */  
-    -webkit-transition: background-color 0.2s linear;  
-    -moz-transition: background-color 0.2s linear;  
-    -o-transition: background-color 0.2s linear;  
+
+
 }  
   
 nav[role="navigation"] ul li a:hover {  
-    background-color: #999;  
+    background-color: #333;
 }
 
 /* 10.CONTENT */
@@ -456,6 +450,23 @@ margin-bottom : 1.5em; }
 
 /* 17.MODERNIZR */
 
+
+
+
+  .custom-content h1 {font-size: 14px;}
+  .custom-content li {margin-bottom: 5px; }
+  nav[role="navigation"] .custom-content ul li a {display: block; padding: 5px}
+  nav[role="navigation"] .custom-content ul li a:hover {background: #333}
+  .custom-content span {margin-bottom: 0; text-align: left; text-transform: none}
+  .custom-content img {width: 117px; display: block; margin: 0 auto}
+
+
+   div[role="main"] {float: left; width: 320px;}
+div[role="mainArticle"] {float: left; width: 400px; display: none}
+
+
+
+
 /* MEDIA QUERIES */
 
 /*Print __________________________________________________________________________________________________________ */
@@ -515,6 +526,7 @@ body.skynewsbody {
 header[role="banner"]{
 	width: 100%;
 	margin: auto;
+  overflow: hidden;
 }
 header[role="banner"] img{
 	margin: auto;
@@ -527,6 +539,8 @@ article img{
 article {
 	font-size:12px;
 }
+
+.custom-content {display: none;}
 
 /*480px __________________________________________________________________________________________________________ */
 @media only screen and (min-width: 480px) {
@@ -549,10 +563,34 @@ article {
 /* 16.TEMPLATE SPECIFICS */
 /* 17.MODERNIZR */
 
+
+
+
+
+
+
+  #left-arrow {display: none}
+  #right-arrow {display: none}
+
+
+  nav[role="navigation"] {width: 140px; margin-right: 20px;float: left;height: 1000px}
+  nav[role="navigation"] ul {height: auto; width: auto; padding: 0;margin-bottom: 20px;}
+  nav[role="navigation"] span#items {width: auto}
+  nav[role="navigation"] ul li a:link, ul#navigation li a:visited {height: auto; float: none}
+  nav[role="navigation"] ul li {float: none; display: block; margin-bottom: 10px;}
+  nav[role="navigation"] span {display: block; float: none; top:0}
+  nav[role="navigation"] ul li {background: none}
+  .custom-content {display: block;}
+
+
 }/*/mediaquery*/
 
 /*768px __________________________________________________________________________________________________________ */
 @media only screen and (min-width: 768px) {
+
+
+
+
 
 /* 1.ROOT */
 
@@ -596,6 +634,10 @@ article {
 /* 15.VENDOR-SPECIFIC */
 /* 16.TEMPLATE SPECIFICS */
 /* 17.MODERNIZR */
+
+  div[role="mainArticle"] {display: block}
+
+
 
 }/*/mediaquery*/
 
