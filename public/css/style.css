@@ -295,7 +295,8 @@ nav[role="navigation"] ul li {
 /*	width: 168px;*/
 	margin: 0 5px 0 0;
 	background-color: #2B477D;
-	border: solid 1px #333;
+
+  border: 1px solid #555;
 	position: relative;
 	z-index: 1;
 }
@@ -316,26 +317,20 @@ nav[role="navigation"] ul li a:link, ul#navigation li a:visited {
 	outline: none;
 	float: left;
 	background: #000;
-  border: 1px solid #000;
 	-webkit-transition: background-color 0.1s linear;
 	-moz-transition: background-color 0.1s linear;
 	-o-transition: background-color 0.1s linear;
 }
 
+.bd {display: block; width: 100%;}
+
 nav[role="navigation"] ul li.selected a:link, ul#navigation li.selected a:visited {
-	color: #000;
-	border: solid 1px #fff;
+	color: #f00;
 	background: -moz-linear-gradient(top center, #d1d1d1, #f2f2f2 80%) repeat scroll 0 0 #f2f2f2;
 	background: -webkit-gradient(linear,left bottom,left top,color-stop(.2, #f2f2f2),color-stop(.8, #d1d1d1));
 	background-color: #f2f2f2;
 }
 
-nav[role="navigation"] ul li a:link, ul#navigation li a:visited {  
-    /* some other CSS here... */  
-
-
-}  
-  
 nav[role="navigation"] ul li a:hover {  
     background-color: #333;
 }
@@ -465,7 +460,8 @@ margin-bottom : 1.5em; }
 /* 17.MODERNIZR */
 
 
-
+nav[role="navigation"] .custom-content ul[role="personalised"] li a:link {margin: 0}
+nav[role="navigation"] .custom-content ul[role="personalised"] li a:hover {background: #fff; /*border: 1px solid #fff;*/}
 
   .custom-content h1 {font-size: 14px;}
   .custom-content li {margin-bottom: 5px; }
