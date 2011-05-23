@@ -19,7 +19,7 @@
 	var updateStories = function(channel, container) {
 		$.getJSON('/feed/'+channel+'?callback=?', function(data){
 			currentJson = data;
-			console.log(data);
+			// console.log(data);
 			var items = data.stories
 			container.empty();
 			for (var newsItem in items){
@@ -57,8 +57,10 @@
 	
 	var initStoryClick = function(){
 		$("article", main).click(function(ev){
-			console.log("added")
 			loadContentItem($(this).attr('data-index'));
+			
+			$("article", main).removeClass("selected");
+			$(this).addClass("selected");
 			ev.preventDefault();
 		});
 	}
@@ -70,7 +72,7 @@
 			// download complicated script
 			// swap in full-source images for low-source ones
 			container.empty();
-			console.log( currentJson, index, currentJson.stories[index*1] )
+			// console.log( currentJson, index, currentJson.stories[index*1] )
 			$( "#bigstoryTemplate" ).tmpl( currentJson.stories[index*1] ).appendTo( container );
 		}
 	}
