@@ -258,17 +258,28 @@ background-color : transparent; }
 nav[role="navigation"] {
 	width: 100%;
 	overflow:hidden;
+  margin-bottom: 10px;
 }
 nav[role="navigation"] span {
 	float: left;
 	top: 3px;
+
+}
+
+nav[role="navigation"] span a {
+	  padding: 10px 5px 0;
+  display: block;
+}
+nav[role="navigation"] span#items a{
+  padding: 0;
+
 }
 nav[role="navigation"] span#items {
 	overflow:hidden;
 	width:250px;
+  padding: 0;
 }
 nav[role="navigation"] ul {
-	height: 22px;
 	padding: 5px 3px 0 3px;
 	margin: 0 auto;
 	position: relative;
@@ -297,7 +308,6 @@ nav[role="navigation"] ul li a:link, ul#navigation li a:visited {
 	display: block;
 	text-align: center;
 	padding: 0px 3px;
-	height: 40px;
 	line-height: 24px;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -306,6 +316,7 @@ nav[role="navigation"] ul li a:link, ul#navigation li a:visited {
 	outline: none;
 	float: left;
 	background: #000;
+  border: 1px solid #000;
 	-webkit-transition: background-color 0.1s linear;
 	-moz-transition: background-color 0.1s linear;
 	-o-transition: background-color 0.1s linear;
@@ -466,28 +477,28 @@ margin-bottom : 1.5em; }
 
    div[role="main"] {float: left; width: 300px; margin-right: 20px; height: 2000px;}
 article.media {cursor: pointer; padding: 3px;}
-article.media:hover {background: #fff; color: #555}
+article.media:hover,article.media.selected {background: #fff; color: #555}
 article#mainArticle {float: left; width: 400px; display: none; height: 2000px;}
 
 
 .content, header, footer {margin: 0 auto; width: 320px;}
 
-#bigstory {float: left; width: 500px; height: 3000px; display: none; margin-right: 20px; }
+#bigstory {float: left; width: 400px; height: 2000px; display: none; margin-right: 20px; }
 #bigstory header {width: auto}
 
-#blog {width: 260px; float: left; display: none; margin-right: 20px; height: 3000px; background: url(../img/blogs.png) no-repeat 0 50px}
+#blog {width: 260px; float: left; display: none; margin-right: 20px; height: 2000px; background: url(../img/blogs.png) no-repeat 0 50px}
 #blog ul ul {padding-left: 80px;}
 #blog ul li {margin-bottom: 20px;}
 #blog ul li li {margin-bottom: 3px;}
 #blog h3 {padding-left: 80px; margin-bottom: 8px;}
 
-#video {width: 100px; float: left; display: none; height: 3000px;margin-right: 20px; }
+#video {width: 100px; float: left; display: none; height: 2000px;margin-right: 20px; }
 
 #video img {display: block; width: 94px;}
 
 
 
-#twitter {width: 200px; float: left; display: none; height: 3000px;margin-right: 20px; }
+#twitter {width: 200px; float: left; display: none; height: 2000px; }
 #twitter li {margin-bottom: 10px;}
 
 /* MEDIA QUERIES */
@@ -606,15 +617,16 @@ header[role="banner"] img{width:400px;}
   nav[role="navigation"] ul li {float: none; display: block; margin-bottom: 10px;}
   nav[role="navigation"] span {display: block; float: none; top:0}
   nav[role="navigation"] ul li {background: none}
+
   .custom-content {display: block;}
 
 
 }/*/mediaquery*/
 
 /*992px __________________________________________________________________________________________________________ */
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 900px) {
 
-  .content, header[role="banner"], footer {width: 1000px;}
+  .content, header[role="banner"], footer {width: 900px;}
 
   article#mainArticle {display: block}
   #bigstory {display: block}
@@ -624,22 +636,39 @@ header[role="banner"] img{width:600px; margin: 20px auto}
 }/*/mediaquery*/
 
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1180px) {
   /* blogs */
-  .content, header[role="banner"], footer {width: 1280px;}
+  .content, header[role="banner"], footer {width: 1180px;}
   #blog {display: block;}
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1300px) {
   /* video */
-  .content, header[role="banner"], footer {width: 1400px;}
+  .content, header[role="banner"], footer {width: 1300px;}
   #video {display: block;}
 }
 
-@media only screen and (min-width: 1620px) {
+@media only screen and (min-width: 1400px) {
   /* twitter */
-  .content, header[role="banner"], footer {width: 1620px;}
-  #twitter {display: block;}
+  .content, header[role="banner"], footer {width: 1400px;}
+  #twitter {display: block; width: 100px;}
+  #twitter li a {display: block; height: 40px; background: url(../img/twitter-icon.png) no-repeat;}
+  #twitter li {position: relative}
+  #twitter li a span.tweet {display: none; width: 90px; position: absolute; right: 90px; top: 0; color: #333; z-index: 10; padding: 10px 25px; background: #fff;}
+  #twitter li a:hover span.tweet {display: block;}
+  span.quoteOpen {position: absolute; font-weight: bold; font-size: 38px; color: #ccc; top: -5px; left: 5px;}
+  span.quoteClose {position: absolute; font-weight: bold; font-size: 38px; color: #ccc; bottom: -15px; right: 0px;}
+}
+
+@media only screen and (min-width: 1520px) {
+  /* twitter */
+  .content, header[role="banner"], footer {width: 1520px;}
+#twitter {width: 200px;}
+  span.quoteClose,
+  span.quoteOpen {display: none;}
+#twitter ul {margin: 0; padding: 0}
+  #twitter li a {background: none; height: auto;}
+  #twitter li a span.tweet {display: block; width: auto; position: static; color: #fff; padding: 0; background: none}
 }
 
 /*2x __________________________________________________________________________________________________________ */
