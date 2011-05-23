@@ -10,7 +10,7 @@
 		var currentJson = ""
  	
 	var init = function(){
-		updateStories('uknews', main);
+		updateStories('news', main);
 		initNav();
 		initArrows();
 		initNavClick();
