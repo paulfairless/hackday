@@ -464,11 +464,25 @@ margin-bottom : 1.5em; }
   .custom-content img {width: 117px; display: block; margin: 0 auto}
 
 
-   div[role="main"] {float: left; width: 300px; margin-right: 20px;}
-article#mainArticle {float: left; width: 400px; display: none}
+   div[role="main"] {float: left; width: 300px; margin-right: 20px; height: 2000px;}
+article.media {cursor: pointer; padding: 3px;}
+article.media:hover {background: #fff; color: #555}
+article#mainArticle {float: left; width: 400px; display: none; height: 2000px;}
 
 
 .content, header, footer {margin: 0 auto; width: 320px;}
+
+#bigstory {float: left; width: 500px; height: 3000px; display: none; margin-right: 20px; }
+#bigstory header {width: auto}
+
+#blog {width: 300px; float: left; display: none; margin-right: 20px; height: 3000px; background: url(../img/blogs.png) no-repeat 0 50px}
+#blog ul ul {padding-left: 80px;}
+#blog ul li {margin-bottom: 20px;}
+#blog ul li li {margin-bottom: 3px;}
+#blog h3 {padding-left: 80px; margin-bottom: 8px;}
+
+#video {width: 300px; float: left; display: none; height: 3000px;margin-right: 20px; }
+#twitter {width: 300px; float: left; display: none; height: 3000px;margin-right: 20px; }
 
 
 /* MEDIA QUERIES */
@@ -538,7 +552,7 @@ header[role="banner"] img{
 	display:block;
 	width:200px;
 }
-div[role="main"] article img{
+article.media img{
 	width: 100px;
 }
 article {
@@ -580,7 +594,7 @@ header[role="banner"] img{width:400px;}
   #right-arrow {display: none}
 
 
-  nav[role="navigation"] {width: 140px; margin-right: 20px;float: left;height: 1000px}
+  nav[role="navigation"] {width: 140px; margin-right: 20px;float: left;height: 2000px}
   nav[role="navigation"] ul {height: auto; width: auto; padding: 0;margin-bottom: 20px;}
   nav[role="navigation"] span#items {width: auto}
   nav[role="navigation"] ul li a:link, ul#navigation li a:visited {height: auto; float: none}
@@ -592,87 +606,36 @@ header[role="banner"] img{width:400px;}
 
 }/*/mediaquery*/
 
-/*768px __________________________________________________________________________________________________________ */
-@media only screen and (min-width: 768px) {
-
-
-
-
-
-/* 1.ROOT */
-
-/* 1.ROOT */
-/* 2.HEADINGS */
-/* 3.TYPOGRAPHY */
-/* 4.LINKS */
-/* 5.FIGURES & IMAGES */
-/* 6.TABLES */
-/* 7.FORMS */
-/* 8.BANNER */
-/* 9.NAVIGATION */
-/* 10.CONTENT */
-/* 11.MAIN */
-/* 12.COMPLIMENTARY */
-/* 13.CONTENTINFO */
-/* 14.GLOBAL OBJECTS */
-/* 15.VENDOR-SPECIFIC */
-/* 16.TEMPLATE SPECIFICS */
-/* 17.MODERNIZR */
-
-}/*/mediaquery*/
-
 /*992px __________________________________________________________________________________________________________ */
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1000px) {
 
-/* 1.ROOT */
-/* 2.HEADINGS */
-/* 3.TYPOGRAPHY */
-/* 4.LINKS */
-/* 5.FIGURES & IMAGES */
-/* 6.TABLES */
-/* 7.FORMS */
-/* 8.BANNER */
-/* 9.NAVIGATION */
-/* 10.CONTENT */
-/* 11.MAIN */
-/* 12.COMPLIMENTARY */
-/* 13.CONTENTINFO */
-/* 14.GLOBAL OBJECTS */
-/* 15.VENDOR-SPECIFIC */
-/* 16.TEMPLATE SPECIFICS */
-/* 17.MODERNIZR */
+  .content, header[role="banner"], footer {width: 1000px;}
 
-
-  .content, header, footer {width: 992px;}
-
-  article#mainArticle" {display: block}
+  article#mainArticle {display: block}
+  #bigstory {display: block}
 header[role="banner"] img{width:600px; margin: 20px auto}
 
 
 }/*/mediaquery*/
 
-/*1382px __________________________________________________________________________________________________________ */
-@media only screen and (min-width: 1382px) {
 
-/* 1.ROOT */
-/* 2.HEADINGS */
-/* 3.TYPOGRAPHY */
-/* 4.LINKS */
-/* 5.FIGURES & IMAGES */
-/* 6.TABLES */
-/* 7.FORMS */
-/* 8.BANNER */
-/* 9.NAVIGATION */
-/* 10.CONTENT */
-/* 11.MAIN */
-/* 12.COMPLIMENTARY */
-/* 13.CONTENTINFO */
-/* 14.GLOBAL OBJECTS */
-/* 15.VENDOR-SPECIFIC */
-/* 16.TEMPLATE SPECIFICS */
-/* 17.MODERNIZR */
+@media only screen and (min-width: 1320px) {
+  /* blogs */
+  .content, header[role="banner"], footer {width: 1320px;}
+  #blog {display: block;}
+}
 
-}/*/mediaquery*/
+@media only screen and (min-width: 1640px) {
+  /* video */
+  .content, header[role="banner"], footer {width: 1640px;}
+  #video {display: block;}
+}
+
+@media only screen and (min-width: 1960px) {
+  /* twitter */
+  .content, header[role="banner"], footer {width: 1960px;}
+  #twitter {display: block;}
+}
 
 /*2x __________________________________________________________________________________________________________ */
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
