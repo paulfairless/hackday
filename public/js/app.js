@@ -37,11 +37,18 @@
         $.getJSON(url, function(data){
             container.empty()
             var items = data.stories;
+            var count = 0;
             for(var newsItem in items) {
                 var story = items[newsItem];
                 if (!(story.id in existingIds)) {
                     story["index"] = newsItem;
        			    $( "#howaboutTemplate" ).tmpl( story ).appendTo( container );
+                    count++;
+                }
+
+                // Only show 4 items at most
+                if (count == 4) {
+                    return;
                 }
             }
         });
