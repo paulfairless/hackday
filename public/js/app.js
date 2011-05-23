@@ -1,4 +1,8 @@
 (function($){
+	
+	var medium = 992
+	var large = 1382
+	
 	var main = $('div[role="main"]'),
 		nav = $("nav[role='navigation'] ul"),
 		navPos = 0;
@@ -43,6 +47,14 @@
 			ev.preventDefault();
 		});
 	}
+	
+	// var loadContentItem = function(){
+	// 	if (screen.width >= medium) {
+	// 		// download complicated script
+	// 		// swap in full-source images for low-source ones
+	// 		$()
+	// 	}
+	// }
 	
 	var initNav = function(){
 		$("li a", nav).click(function() {
