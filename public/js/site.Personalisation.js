@@ -41,15 +41,16 @@ site.Personalisation = (function($) {
                 var dataString = localStorage[state.storageLocator],
                     data = JSON.parse(dataString);
                 behaviour = data.behaviour
-                updatePage(behaviour);
             }
         }
     };
 
-    var updatePage = function() {
-//        console.log(behaviour);
-    }
-
     $(init);
+
+    return {
+        getBehaviour : function() {
+            return behaviour;
+        }
+    };
 
 }(jQuery));

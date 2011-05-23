@@ -2,12 +2,13 @@
 	
 	var medium = 992,
 	    large = 1382
-	
+
 	var main = $('div[role="main"]'),
+        howabout = $('ul[role="personalised"]'),
 		nav = $("nav[role='navigation'] ul"),
 		navPos = 0;
-		
-		var currentJson = ""
+    
+	var currentJson = ""
  	
 	var init = function(){
 		updateStories('news', main);
@@ -15,9 +16,39 @@
 		initArrows();
 		initNavClick();
 	}
-	
+
+    var updateHowAboutThis = function(currentChannel, container, otherItems) {
+        var behaviour = site.Personalisation.getBehaviour();
+        var favouriteChannel = 'politics';
+        $.each(behaviour, function(key, value) {
+             if (key != currentChannel && (favouriteChannel == null || behaviour[favouriteChannel] < value)) {
+                 favouriteChannel = key;
+             }
+        });
+//        console.log(favouriteChannel);
+
+        var existingIds = [];
+        $.each(otherItems, function(key, value) {
+            existingIds.push( value.id );
+        });
+//        console.log(existingIds);
+
+        var url = '/feed/'+favouriteChannel+'?callback=?';
+        $.getJSON(url, function(data){
+            container.empty()
+            var items = data.stories;
+            for(var newsItem in items) {
+                var story = items[newsItem];
+                if (!(story.id in existingIds)) {
+                    story["index"] = newsItem;
+       			    $( "#mediaTemplate" ).tmpl( story ).appendTo( container );
+                }
+            }
+        });
+    }
+
 	var updateStories = function(channel, container) {
-		$.getJSON('/feed/'+channel+'?callback=?', function(data){
+        $.getJSON('/feed/'+channel+'?callback=?', function(data){
 			currentJson = data;
 			// console.log(data);
 			var items = data.stories
@@ -27,13 +58,13 @@
 				story["index"] = newsItem;
 				$( "#mediaTemplate" ).tmpl( story).appendTo( container );
 			}
+            updateHowAboutThis(channel, howabout, items);
 			initStoryClick();
-			
+
 			$("article:eq(0)", main).click();
 		});
-		
 	}
-	
+
 	var initArrows = function(){
 		$('#left-arrow').click(function(ev){
 			navPos += 100;

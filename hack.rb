@@ -17,13 +17,18 @@
         story = {}
         newsitem = key["NewsComponent"]["NewsComponent"]["NewsComponent"]
         
+#        story["id"] = key["Identification"]["NewsIdentifier"]["NewsItemId"]
         story["headline"] = newsitem[0]["NewsLines"]["HeadLine"]
         story["slug"] = newsitem[0]["NewsLines"]["SlugLine"]
         story["body"] = newsitem[0]["ContentItem"]["DataContent"]
         
         imageIndex = newsitem[1]["ContentItem"].index{|item|item["Characteristics"]["Property"][0]["Value"]=='400'}
-        story["image"] =  newsitem[1]["ContentItem"].at(imageIndex)["Href"]
-        
+        if (imageIndex)
+           story["image"] =  newsitem[1]["ContentItem"].at(imageIndex)["Href"]
+        else
+          story["image"] =  '/img/breaking-news.jpg'
+        end
+
         # Do we have a video
         if newsitem.size() > 2
           videoWithPhoto = newsitem[2]["ContentItem"][0]
