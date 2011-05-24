@@ -98,52 +98,8 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
   <div role="complementary" id="blog">
     <h2>Blogs</h2>
     
-    <ul>
-       <li>
-         <h3>Kleinman</h3>
-         <ul>
-           <li><a href="#">President Obama's Irish Roots</a></li>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-         </ul>
-       </li>
-
-      <li>
-         <h3>Boulton</h3>
-         <ul>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-         </ul>
-       </li>
-
-      <li>
-         <h3>Family Affairs</h3>
-         <ul>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-         </ul>
-       </li>
-
-      <li>
-         <h3>Weather Girls</h3>
-         <ul>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-           <li><a href="#">Lorem ipsum dolar sit del amet</a></li>
-         </ul>
-       </li>
-
-      <li>
-         <h3>Kay B</h3>
-         <ul>
-           <li><a href="#">Lorem ipsum</a></li>
-           <li><a href="#">Lorem ipsum</a></li>
-           <li><a href="#">Lorem ipsum</a></li>
-         </ul>
-       </li>
-
+    <ul id="blogs">
+       
     </ul>
   </div>
 
@@ -216,6 +172,13 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
         <img src="${image}" alt="${headline}" title="${headline}"/>
       </a>
     </li>
+</script>
+
+<script id="blogTemplate" type="text/x-jquery-tmpl">
+    <h3>${category}</h3>
+     <ul>
+       <li><a href="${link}">${title}</a></li>
+     </ul>
 </script>
 
 <script id="bigstoryTemplate" type="text/x-jquery-tmpl">

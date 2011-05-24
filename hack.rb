@@ -50,6 +50,7 @@
     end
   end
   
+  
   get '/' do
     'Hello world!'
   end
@@ -60,6 +61,20 @@
     resp = HTTParty.get("http://news.sky.com/sky-news/newsml/#{f}/index.xml")
     json = resp.parsed_response.to_json
     json = cleanNewsML(resp.parsed_response).to_json
+    if callback
+      content_type :js
+      response = "#{callback}(#{json})" 
+    else
+      content_type :json
+      response = json
+    end
+    response
+  end
+  
+  get '/blogs' do
+    callback = params.delete('callback')
+    resp = HTTParty.get("http://news.sky.com/sky-news/feeds/blogs/topBlogs.xml")
+    json = resp.parsed_response.to_json
     if callback
       content_type :js
       response = "#{callback}(#{json})" 
