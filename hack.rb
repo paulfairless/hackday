@@ -54,7 +54,7 @@
       blogs[]
       blogs["rss"]["channel"]["item"]..each{|key, value|
         blogs["author"] = key['category']
-        blogs["image"] = '/img/'+
+        blogs["image"] = '/img/'
         blogs["title"] = key['title']
         blogs["desc"] = key['description']
         
@@ -64,7 +64,7 @@
   
   
   get '/' do
-    'Hello world!'
+    File.read(File.join('public', 'index.html'))
   end
   
   
