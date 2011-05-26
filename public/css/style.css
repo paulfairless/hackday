@@ -482,11 +482,11 @@ article#mainArticle {float: left; width: 400px; display: none; height: 2000px;}
 #bigstory {float: left; width: 400px; height: 2000px; display: none; margin-right: 20px; }
 #bigstory header {width: auto}
 
-#blog {width: 260px; float: left; display: none; margin-right: 20px; height: 2000px; background: url(../img/blogs.png) no-repeat 0 50px}
-#blog ul ul {padding-left: 80px;}
+#blog {width: 260px; float: left; display: none; margin-right: 20px; height: 2000px; text-align:left;}
+#blog ul ul {padding-left: 0px;}
 #blog ul li {margin-bottom: 20px;}
 #blog ul li li {margin-bottom: 3px;}
-#blog h3 {padding-left: 80px; margin-bottom: 8px;}
+#blog h3 {margin-bottom: 8px;}
 
 #video {width: 100px; float: left; display: none; height: 2000px;margin-right: 20px; }
 

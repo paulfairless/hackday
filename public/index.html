@@ -175,10 +175,17 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
 </script>
 
 <script id="blogTemplate" type="text/x-jquery-tmpl">
+<li class="media" data-index="${index}">
+	<a href="#" class="img">
+        <img src="/img/sky_news_blog.png"/>
+    </a>
+	<div class="bd">
     <h3>${category}</h3>
-     <ul>
-       <li><a href="${link}">${title}</a></li>
-     </ul>
+    <ul>
+       <li><a href="#">${title}</a></li>
+    </ul>
+	</div>
+</li>
 </script>
 
 <script id="bigstoryTemplate" type="text/x-jquery-tmpl">
@@ -202,7 +209,7 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
 
 <!-- http://t.co/HZe9oJ4 -->
 <script>
-var _gaq=[['_setAccount','UA-6044180-3'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+var _gaq=[['_setAccount','UA-6044180-3],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
 g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 s.parentNode.insertBefore(g,s)}(document,'script'));

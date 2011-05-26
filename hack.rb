@@ -48,6 +48,18 @@
       clean["stories"] = stories
       return clean
     end
+    
+    def cleanBlogs(blogs)
+      clean{}
+      blogs[]
+      blogs["rss"]["channel"]["item"]..each{|key, value|
+        blogs["author"] = key['category']
+        blogs["image"] = '/img/'+
+        blogs["title"] = key['title']
+        blogs["desc"] = key['description']
+        
+      }
+    end
   end
   
   

@@ -21,6 +21,7 @@
 		initArrows();
 		initNavClick();
 		initDetectResize();
+		initialiseViewport();
 	}
 
     var updateHowAboutThis = function(currentChannel, container, otherItems) {
@@ -77,7 +78,6 @@
 			}
             updateHowAboutThis(channel, howabout, items);
 			initStoryClick();
-
 			$("article:eq(0)", main).click();
 		});
 	}
@@ -130,8 +130,6 @@
 	
 	var loadContentItem = function(index){
 		var container
-		console.log('load main')
-		console.log(width, medium)
 		if (width>= medium) {
 			console.log('load main')
 			container = $("#bigstory");
@@ -156,27 +154,32 @@
 	}
 	
 	var init_992 = function(){
-		loadContentItem(0)
+		try {loadContentItem(0)}catch(err){}
 		INIT_992 = true;
 	}
 	
 	var init_1180 = function(){
+		console.log("blogs")
 		updateBlogs();
 		INIT_1180 = true;
 	}
 	
+	var initialiseViewport = function(){
+		width = $(window).width()
+		if(width >= 768 && !INIT_768) {
+			init_768();
+		}
+		if(width >= 992  && !INIT_992) {
+			init_992();
+		}
+		if(width >= 1180  && !INIT_1180) {
+			init_1180();
+		}
+	}
+	
 	var initDetectResize = function(){
 		document.body.onresize = function(){
-			width = $(window).width()
-			if(width >= 768 && !INIT_768) {
-				init_768();
-			}
-			if(width >= 992  && !INIT_992) {
-				init_992();
-			}
-			if(width >= 1180  && !INIT_1180) {
-				init_1180();
-			}
+			initialiseViewport();
 		}
 	}
 	
