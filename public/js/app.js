@@ -6,6 +6,7 @@
 	var main = $('div[role="main"]'),
         howabout = $('ul[role="personalised"]'),
 		nav = $("nav[role='navigation'] ul"),
+		twitter = $("#tweets")
 		blogs = $("#blogs"),
 		navPos = 0,
 		width = $(window).width(),
@@ -131,7 +132,6 @@
 	var loadContentItem = function(index){
 		var container
 		if (width>= medium) {
-			console.log('load main')
 			container = $("#bigstory");
 			// download complicated script
 			// swap in full-source images for low-source ones
@@ -149,6 +149,19 @@
 		});	
 	}
 	
+	var updateTwitter = function(query, container){
+		
+		$.getJSON('http://search.twitter.com/search.json?q=from%3A'+query+'&callback=?', function(data){
+			console.log(data)
+			container.empty();
+			var items = data.results
+			for (var tweetIdx in items){
+				var tweet = items[tweetIdx]
+				$( "#twitterTemplate" ).tmpl( tweet).appendTo( container );
+			}
+		});
+	}
+	
 	var init_768 = function(){
 		INIT_768 = true;
 	}
@@ -161,6 +174,7 @@
 	var init_1180 = function(){
 		console.log("blogs")
 		updateBlogs();
+		updateTwitter('skynewsbreak', twitter)
 		INIT_1180 = true;
 	}
 	

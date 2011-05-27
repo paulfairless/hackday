@@ -112,31 +112,7 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
 
   <div role="complementary" id="twitter">
     <h2>Twitter</h2>
-    <ul>
-      <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Pylons Up For Makeover In Design Contest<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Yemen Peace Deal Fails As Saleh Backs Out<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>MS Sufferers 'Face Daily Battle For Drugs'<span class="quoteClose">&#8221;</span></span></a></li>
-      <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Pylons Up For Makeover In Design Contest<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Yemen Peace Deal Fails As Saleh Backs Out<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>MS Sufferers 'Face Daily Battle For Drugs'<span class="quoteClose">&#8221;</span></span></a></li>
-      <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Pylons Up For Makeover In Design Contest<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Yemen Peace Deal Fails As Saleh Backs Out<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>MS Sufferers 'Face Daily Battle For Drugs'<span class="quoteClose">&#8221;</span></span></a></li>
-      <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Pylons Up For Makeover In Design Contest<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Yemen Peace Deal Fails As Saleh Backs Out<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>MS Sufferers 'Face Daily Battle For Drugs'<span class="quoteClose">&#8221;</span></span></a></li>
-      <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Pylons Up For Makeover In Design Contest<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Yemen Peace Deal Fails As Saleh Backs Out<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>MS Sufferers 'Face Daily Battle For Drugs'<span class="quoteClose">&#8221;</span></span></a></li>
-      <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Pylons Up For Makeover In Design Contest<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Yemen Peace Deal Fails As Saleh Backs Out<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>MS Sufferers 'Face Daily Battle For Drugs'<span class="quoteClose">&#8221;</span></span></a></li>
-      <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Pylons Up For Makeover In Design Contest<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Yemen Peace Deal Fails As Saleh Backs Out<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>MS Sufferers 'Face Daily Battle For Drugs'<span class="quoteClose">&#8221;</span></span></a></li>
-      <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Pylons Up For Makeover In Design Contest<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>Yemen Peace Deal Fails As Saleh Backs Out<span class="quoteClose">&#8221;</span></span></a></li>
-            <li><a href="#"><span class="tweet"><span class="quoteOpen">&#8220;</span>MS Sufferers 'Face Daily Battle For Drugs'<span class="quoteClose">&#8221;</span></span></a></li>
+    <ul id="tweets">
       
     </ul>
   </div>
@@ -172,6 +148,16 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
         <img src="${image}" alt="${headline}" title="${headline}"/>
       </a>
     </li>
+</script>
+
+<script id="twitterTemplate" type="text/x-jquery-tmpl">
+	<li>
+	<a href="#">
+	<span class="tweet">
+		<span class="quoteOpen">&#8220;</span>${text}<span class="quoteClose">&#8221;</span>
+	</span>
+	</a>
+	</li>
 </script>
 
 <script id="blogTemplate" type="text/x-jquery-tmpl">
