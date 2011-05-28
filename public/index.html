@@ -128,6 +128,11 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/jquery-1.5.1.min.js">\x3C/script>')</script>
 <script src="https://github.com/jquery/jquery-tmpl/raw/master/jquery.tmpl.min.js"></script>
+<script src="http://cdn.jquerytools.org/1.2.5/all/jquery.tools.min.js"></script>
+<script src="js/libs/flowplayer-3.2.6.min.js"></script>
+<script>
+var _flash_installed = ((typeof navigator.plugins != "undefined" && typeof navigator.plugins["Shockwave Flash"] == "object") || (window.ActiveXObject && (new ActiveXObject("ShockwaveFlash.ShockwaveFlash")) != false));
+</script>
 <!-- Scripts -->
 <script src="js/plugins.js"></script>
 <script src="js/script.js"></script>
@@ -177,9 +182,21 @@ URL: http://stuffandnonsense.co.uk/projects/320andup
 <script id="bigstoryTemplate" type="text/x-jquery-tmpl">
 <article class="mainArticle">
   <header>
-    <img src="${image}" alt="me" />
 	<h1>${headline}</h1>
   </header>
+  {{if video &&  typeof video == "string"}}
+	{{if _flash_installed}}
+    <a  
+		 href="${video}"
+		 style="display:block;width:400px;height:225px"  
+		 id="player"> 
+	</a>
+	{{else Modernizr.video && Modernizr.video.h264}}
+		<video src="${video.replace('.flv', '.mp4').replace('/flash/', '/h264/700/2011/05/')}" controls="controls" height="225" width="400" />
+	{{/if}}
+  {{else}}
+	<img src="${image}" alt="me" />
+  {{/if}}
   {{html slug}}
   {{html body}}
 </article>

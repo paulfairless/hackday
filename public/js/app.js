@@ -12,7 +12,8 @@
 		width = $(window).width(),
 		INIT_768 = false,
 		INIT_992 = false,
-		INIT_1180 = false
+		INIT_1180 = false,
+		_flash_installed = ((typeof navigator.plugins != "undefined" && typeof navigator.plugins["Shockwave Flash"] == "object") || (window.ActiveXObject && (new ActiveXObject("ShockwaveFlash.ShockwaveFlash")) != false));
     
 	var currentJson = ""
  	
@@ -137,7 +138,38 @@
 			// swap in full-source images for low-source ones
 			container.empty();
 			// console.log( currentJson, index, currentJson.stories[index*1] )
-			$( "#bigstoryTemplate" ).tmpl( currentJson.stories[index*1] ).appendTo( container );
+			var story = currentJson.stories[index*1];
+			console.log(story)
+			$( "#bigstoryTemplate" ).tmpl( story ).appendTo( container );
+			var _tracker = _gat._getTracker("[UA-6044180-3]");
+			if(story.video) {				
+				if(_flash_installed) {
+				flowplayer("player", "player/flowplayer-3.2.7.swf", {
+
+					clip: {
+						// track start event for this clip
+						onStart: function(clip) {
+							_tracker._trackEvent("Videos", "Play", clip.url);
+						},
+
+						// track pause event for this clip. time (in seconds) is also tracked
+						onPause: function(clip) {
+							_tracker._trackEvent("Videos", "Pause", clip.url, parseInt(this.getTime()));
+						},
+
+						// track stop event for this clip. time is also tracked
+						onStop: function(clip) {
+							_tracker._trackEvent("Videos", "Stop", clip.url, parseInt(this.getTime()));
+						},
+
+						// track finish event for this clip
+						onFinish: function(clip) {
+							_tracker._trackEvent("Videos", "Finish", clip.url);
+						}
+					}
+				});
+				}
+			}
 		}
 	}
 	
@@ -152,7 +184,6 @@
 	var updateTwitter = function(query, container){
 		
 		$.getJSON('http://search.twitter.com/search.json?q=from%3A'+query+'&callback=?', function(data){
-			console.log(data)
 			container.empty();
 			var items = data.results
 			for (var tweetIdx in items){
