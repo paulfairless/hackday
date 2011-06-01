@@ -139,7 +139,7 @@
 			container.empty();
 			// console.log( currentJson, index, currentJson.stories[index*1] )
 			var story = currentJson.stories[index*1];
-			console.log(story)
+			// console.log(story)
 			$( "#bigstoryTemplate" ).tmpl( story ).appendTo( container );
 			var _tracker = _gat._getTracker("[UA-6044180-3]");
 			if(story.video) {				
@@ -203,7 +203,6 @@
 	}
 	
 	var init_1180 = function(){
-		console.log("blogs")
 		updateBlogs();
 		updateTwitter('skynewsbreak', twitter)
 		INIT_1180 = true;
